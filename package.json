@@ -1,0 +1,27 @@
+{
+ "name": "tripmarket",
+ "version": "1.0.0",
+ "description": "Trip marketplace",
+ "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon index.ts"
+ },
+ "keywords": [
+  "Node.js",
+  "Express.js",
+  "Typescript",
+  "Mongoose",
+  "MongoDB"
+ ],
+ "author": "Pawel Rugala",
+ "license": "ISC",
+ "dependencies": {
+  "express": "^4.18.1"
+ },
+ "devDependencies": {
+  "@types/express": "^4.17.13",
+  "ts-node": "^10.8.1",
+  "typescript": "^4.7.4"
+ }
+}
