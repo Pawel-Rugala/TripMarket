@@ -36,6 +36,16 @@ export class dummyStore {
    console.log(error)
   }
  }
+ async deleteTour(id: number) {
+  try {
+   const index = this.state.findIndex((trip) => trip.id === id)
+   this.state.splice(index, 1)
+   await writeDummyDataToFile(this.state)
+   await this.setState()
+  } catch (error) {
+   console.log(error)
+  }
+ }
  getTrip(id: number) {
   return this.state.find((trip) => trip.id === id)
  }

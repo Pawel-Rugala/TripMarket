@@ -63,4 +63,14 @@ app.patch('/api/tours/:id', async (req, res) => {
  }
 })
 
+app.delete('/api/tours/:id', async (req, res) => {
+ try {
+  const id = req.params.id
+  await store.deleteTour(parseInt(id))
+  res.status(204).json({ message: 'Tour deleted' })
+ } catch (error) {
+  res.status(500).json({ message: 'Error deleting tour', error })
+ }
+})
+
 export default app
