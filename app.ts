@@ -51,4 +51,16 @@ app.get('/api/tours/:id', (req, res) => {
  }
 })
 
+app.patch('/api/tours/:id', async (req, res) => {
+ const id = req.params.id
+ const tour = store.getTrip(parseInt(id))
+ if (tour) {
+  const newTour = Object.assign({}, tour, req.body)
+  await store.updateValue(parseInt(id), newTour)
+  res.status(200).json({ tour: newTour })
+ } else {
+  res.status(404).json({ message: 'Tour not found' })
+ }
+})
+
 export default app

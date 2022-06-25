@@ -26,6 +26,16 @@ export class dummyStore {
    console.log(error)
   }
  }
+ async updateValue(id: number, value: TDummyData) {
+  try {
+   const index = this.state.findIndex((trip) => trip.id === id)
+   this.state[index] = value
+   await writeDummyDataToFile(this.state)
+   await this.setState()
+  } catch (error) {
+   console.log(error)
+  }
+ }
  getTrip(id: number) {
   return this.state.find((trip) => trip.id === id)
  }
