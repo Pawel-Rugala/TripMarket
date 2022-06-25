@@ -26,6 +26,9 @@ export class dummyStore {
    console.log(error)
   }
  }
+ getTrip(id: number) {
+  return this.state.find((trip) => trip.id === id)
+ }
  generateId() {
   const num = this.state[this.state.length - 1].id + 1
   return num
