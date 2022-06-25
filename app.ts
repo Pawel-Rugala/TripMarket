@@ -41,4 +41,14 @@ app.post('/api/tours', async (req, res) => {
  }
 })
 
+app.get('/api/tours/:id', (req, res) => {
+ const id = req.params.id
+ const tour = store.getTrip(parseInt(id))
+ if (tour) {
+  res.status(200).json(tour)
+ } else {
+  res.status(404).json({ message: 'Tour not found' })
+ }
+})
+
 export default app
