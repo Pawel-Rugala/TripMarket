@@ -2,17 +2,13 @@ import express from 'express'
 import { dummyStore } from './dummy/store'
 import morgan from 'morgan'
 import { tourRoutes } from './routes/tours'
+import { userRoutes } from './routes/users'
 
 export const store = new dummyStore()
 
-store
- .setState()
- .then(() => {
-  console.log('store initialized')
- })
- .catch((err: any) => {
-  console.log(err)
- })
+store.setState().catch((err: any) => {
+ console.log(err)
+})
 
 const app = express()
 app.use(express.json())
@@ -23,5 +19,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/tours', tourRoutes)
+app.use('/api/users', userRoutes)
 
 export default app
