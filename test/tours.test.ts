@@ -44,6 +44,10 @@ describe('TOURS', () => {
    })
  })
 
+ test('GET /api/tours/:id 404', () => {
+  return request(app).get('/api/tours/999').expect(404)
+ })
+
  //test update tour from /api/tours/:id
  test('PATCH /api/tours/:id', () => {
   return request(app)
