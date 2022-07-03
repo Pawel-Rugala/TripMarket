@@ -13,6 +13,8 @@ export const getAllTours = async (
  }
 }
 
+console.log('hello')
+
 export const createTour = async (
  req: express.Request,
  res: express.Response
