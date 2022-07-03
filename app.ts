@@ -1,6 +1,5 @@
 require('dotenv').config()
 import express from 'express'
-import { dummyStore } from './dummy/store'
 import morgan from 'morgan'
 import { tourRoutes } from './routes/tours'
 import { userRoutes } from './routes/users'
@@ -12,12 +11,6 @@ mongoose
  .connect(`${LinkToDb}`)
  .then((con) => console.log('DB Connected '))
  .catch((err) => console.log(err))
-
-export const store = new dummyStore()
-
-store.setState().catch((err: any) => {
- console.log(err)
-})
 
 const app = express()
 app.use(express.json())
